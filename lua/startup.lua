@@ -145,7 +145,7 @@ function display(view, args)
   term.clearLine()
   
   if tonumber(view) == 0 then
-    term.setTC(colours.yellow)
+    term.setTC(colours.white)
     term.setCursorBlink(true)
     write("> ")
     term.setTC(colours.lightGrey)
