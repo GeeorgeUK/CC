@@ -31,7 +31,7 @@ end
 
 global = {}
 global.nickname = "Lily"
-global.version = "GeeorgeOS_v1.00-5.27h"
+global.version = "GeeorgeOS_v1.00-5.28"
 global.input = {}
 global.output = {}
 global.alerts = {}
@@ -146,10 +146,12 @@ function display(view, args)
   
   if tonumber(view) == 0 then
     term.setTC(colours.yellow)
+    term.setCursorBlink(true)
     write("> ")
-    term.setTC(colours.grey)
+    term.setTC(colours.lightGrey)
     write(table.concat(global.input))
-  elseif tonumber(view) == 1 and args then 
+  elseif tonumber(view) == 1 and args then
+    term.setCursorBlink(false)
     os.startTimer(args.timeout or 5)
     write(args.message or "Dummy Notification")
   end
