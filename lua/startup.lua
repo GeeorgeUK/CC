@@ -29,8 +29,9 @@ end
 
 -- Define Variables
 
+global = {}
 global.nickname = "Lily"
-global.version = "GeeorgeOS_v1.00-5.27e"
+global.version = "GeeorgeOS_v1.00-5.27f"
 global.input = {}
 global.output = {}
 global.alerts = {}
@@ -138,7 +139,7 @@ function display(view, args)
   
   if tonumber(view) == 0 then
     write("> ")
-    write(table.concat(global.input)
+    write(table.concat(global.input))
   elseif tonumber(view) == 1 and args then 
     os.startTimer(args.timeout or 5)
     write(args.message or "Dummy Notification")
