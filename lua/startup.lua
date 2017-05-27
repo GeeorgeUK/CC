@@ -31,7 +31,7 @@ end
 
 global = {}
 global.nickname = "Lily"
-global.version = "GeeorgeOS_v1.00-5.27f"
+global.version = "GeeorgeOS_v1.00-5.27g"
 global.input = {}
 global.output = {}
 global.alerts = {}
@@ -115,7 +115,8 @@ while bootmenu do
   local event, char = os.pullEvent("char")
   
   if event == "char" then
-    if char == "1" and fs.exists("startup") then
+    if char == "1" then
+      bootmenu = false
       break
     elseif char == "2" and fs.exists("disk/startup") then
       
@@ -205,9 +206,9 @@ while true do
         os.reboot()
       elseif command == "help" then
         
-        term.setTC(colour.yellow)
+        term.setTextColour(colour.yellow)
         print("Command Reference")
-        term.setTC(colour.lightGrey)
+        term.setTextColour(colour.lightGrey)
         print("'help' | Show a command reference")
         print("'exit' | Exit to the terminal")
         print("'programs' | Show a list of programs")
