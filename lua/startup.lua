@@ -31,7 +31,7 @@ end
 
 global = {}
 global.nickname = "Lily"
-global.version = "GeeorgeOS_v1.00-5.27g"
+global.version = "GeeorgeOS_v1.00-5.27h"
 global.input = {}
 global.output = {}
 global.alerts = {}
@@ -116,10 +116,14 @@ while bootmenu do
   
   if event == "char" then
     if char == "1" then
+      term.clear()
+      term.setCP(1,1)
       bootmenu = false
       break
     elseif char == "2" and fs.exists("disk/startup") then
       
+      term.clear()
+      term.setCP(1,1)
       shell.run("disk/startup")
       os.shutdown()
     
@@ -136,10 +140,14 @@ function display(view, args)
 
   term.printTitle(global.version, "Type \"help\" for a command reference")
   term.setCP(1,yz)
+  term.setBC(colours.black)
+  term.setTC(colours.grey)
   term.clearLine()
   
   if tonumber(view) == 0 then
+    term.setTC(colours.yellow)
     write("> ")
+    term.setTC(colours.grey)
     write(table.concat(global.input))
   elseif tonumber(view) == 1 and args then 
     os.startTimer(args.timeout or 5)
@@ -206,9 +214,9 @@ while true do
         os.reboot()
       elseif command == "help" then
         
-        term.setTextColour(colour.yellow)
+        term.setTextColour(colours.yellow)
         print("Command Reference")
-        term.setTextColour(colour.lightGrey)
+        term.setTextColour(colours.lightGrey)
         print("'help' | Show a command reference")
         print("'exit' | Exit to the terminal")
         print("'programs' | Show a list of programs")
